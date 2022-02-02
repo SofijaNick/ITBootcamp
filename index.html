@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>ITBootcamp Chat</h1>
+
+    <h3>Choose a chatroom</h3>
+    <nav class="row">
+        <button class="col-3">#general</button>
+        <button class="col-3">#js</button>
+        <button class="col-3">#homeworks</button>
+        <button class="col-3">#tests</button>
+    </nav>
+
+    <section>
+
+        <ul>
+
+        </ul>
+        
+    </section>
+
+
+    <div id="poruke">
+        <form action="" id="formMessage">
+            <input type="text" name="message" id="message" placeholder="Your message...">
+            <button type="submit" id="send">Send</button>
+        </form>
+        <form action="" id="formUsername">
+            <input type="text" name="username" id="username" placeholder="Update username">
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyBmwZRsH_q3hhkVKPcY4_Ho4_VnpmQFMXQ",
+          authDomain: "itbootcamp-js7sofijanikolic.firebaseapp.com",
+          projectId: "itbootcamp-js7sofijanikolic",
+          storageBucket: "itbootcamp-js7sofijanikolic.appspot.com",
+          messagingSenderId: "423317498472",
+          appId: "1:423317498472:web:176646ce5abdbe4d8869dd",
+          measurementId: "G-309JSD7R5N"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore();
+
+      </script>
+
+      <script type="module" src="app.js"></script>
+
+    
+</body>
+</html>
