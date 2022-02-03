@@ -52,27 +52,58 @@
 
 }
 
-
 h1, h3{
     text-align: center;
-    color:rgb(155, 0, 31);
+    color:#ffa260;
+}
+nav{
+    margin: 10px;
+    float: left;
 }
 
 nav button{
+    border-color: #ffa260;
     float: left;
-    width: 25%;
-    background-color: rgb(155, 0, 31);
-    color: white;
-    font-size: larger;
+    background-color: #151b29;
+    color: #ffa260;
+    font-size: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 10px;
     margin-bottom: 5px;
+    transition: all 0.25s;
+}
+nav button:hover{
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 5px 5px -4px #f1ff5c;
 }
 
 form button{
     width: 100px;
     border-radius: 10px;
+    color: #ffa260;
+    border: 2px solid;
+    font-size: 1em;
+    background-color: #151b29;
+}
+
+form button:hover{
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 5px 5px -4px #f1ff5c;
+    transform: translateY(-2px)
+}
+
+input{
+    height: 24px;
+    width: 300px;
+    border-radius: 10px;
+    border: 2px solid #ffa260;
+    margin-right: 2px;
+}
+input:hover{
+    border-color: #f1ff5c;
 }
 
 form{
@@ -86,11 +117,6 @@ form{
     padding-left: 10px;
 }
 
-input{
-    width: 300px;
-    border-radius: 10px;
-}
-
 section{
     height: 400px;
     display: inline-block;
@@ -98,10 +124,24 @@ section{
     border: 2px solid rgb(224, 207, 207);
     border-radius: 10px;
 }
+body{
+    background-image: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"); 
+    background-size: cover;
+}
 
 .row{
     width: 100%;
     overflow: hidden;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    width: 30%;
+    background-color: #ffc69e;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 0px 10px 10px 10px;
 }
 
 

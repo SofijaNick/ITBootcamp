@@ -13,6 +13,7 @@ export class ChatUI {
 
     formatDate(doc) {
         // let time = new Date(doc.created_at.seconds * 1000);
+        let datum = new Date();
         let time = doc.created_at.toDate();
         let day = time.getDate();
         let month = time.getMonth() + 1;
@@ -21,7 +22,12 @@ export class ChatUI {
         let minutes = time.getMinutes();
 
         let date = `${day}.${month}.${year}. - ${hours}:${minutes}`;
-        return date;
+        let danas = `${hours}:${minutes}`;
+        if(datum.getDate() == time.getDate()){
+            return danas;
+        }else{
+            return date;
+        }
     }
 
     templateLI(doc) {

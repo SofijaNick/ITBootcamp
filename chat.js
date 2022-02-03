@@ -54,6 +54,10 @@ export class Chatroom {
         })
     }
 
+    updateName(callback){
+        
+    }
+
 }
 
 
