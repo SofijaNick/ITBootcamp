@@ -1,45 +1,37 @@
 import { Chatroom } from "./chat.js";
 import { ChatUI } from "./ui.js"
 
-let chatroom1 = new Chatroom("js", "Sofija")
-
-console.log(chatroom1.room);
-console.log(chatroom1.username);
-
-
-let chatroom2 = new Chatroom("general", "Milena");
-// chatroom2.addChat("HR trening")
-// .then(() => console.log("Trening pisanja CV-ja"))
-// .catch(err => {
-//     console.log(`Greska: ${err}`)
-// })
-
-chatroom2.getChats(d => {
-    console.log(d)
-})
-
-
-console.log(chatroom2.room, chatroom2.username)
-
-let sekcija = document.querySelector('section ul')
-
-let chatUI1 = new ChatUI (sekcija)
-
-// Ispis na stranici
-
-chatroom2.getChats(d => {
-    chatUI1.templateLI(d);
-})
+// DOM
 
 let forma1 = document.querySelector('#formMessage');
 let forma2 = document.querySelector('#formUsername');
-let msg = document.querySelector('#message')
-let username = document.querySelector('#username')
+let msg = document.querySelector('#message');
+let username = document.querySelector('#username');
+let sekcija = document.querySelector('section ul');
+
+// Objekti klasa
+
+let chatroom = new Chatroom("general", "Sofija");
+let chatUI = new ChatUI (sekcija);
+
+// Ispis dokumenata u konzoli
+
+chatroom.getChats(d => {
+    console.log(d)
+})
+
+// Ispis na stranici
+
+chatroom.getChats(d => {
+    chatUI.templateLI(d);
+})
+
+// Submitovanje formi
 
 function submitForm1(e){
     e.preventDefault();
     let poruka = msg.value;
-    chatroom2.addChat(poruka)
+    chatroom.addChat(poruka)
     .then(() => {
         msg.value = '';
         console.log(poruka)
@@ -52,7 +44,7 @@ function submitForm1(e){
 function submitForm2(e){
     e.preventDefault();
     let newUsername = username.value;
-    chatroom2.username = newUsername;
+    chatroom.username = newUsername;
     console.log('Apdejtovano ime')
     forma2.reset();
 }
