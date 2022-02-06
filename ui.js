@@ -1,3 +1,4 @@
+import { z } from "./app.js";
 export class ChatUI {
     constructor(lp){
         this.listaPoruka = lp;
@@ -20,6 +21,9 @@ export class ChatUI {
         let year = time.getFullYear();
         let hours = time.getHours();
         let minutes = time.getMinutes();
+        if(minutes < 10){
+            minutes = `0${minutes}`;
+        }
 
         let date = `${day}.${month}.${year}. - ${hours}:${minutes}`;
         let danas = `${hours}:${minutes}`;
@@ -30,19 +34,39 @@ export class ChatUI {
         }
     }
 
+
     templateLI(doc) {
+        let id = doc.id;
+        let data = doc.data();
         // izvuci podatke iz prosljednjenog dokumenta i zapisati ih u formatu 
         // username: poruka
         // time_stamp
-        let date = this.formatDate(doc);
+        let date = this.formatDate(data);
 
-        let htmlLi =
-            `<li>
-                ${doc.username}: ${doc.message}
+        if(z == data.username){
+            let htmlLi =
+            `<li id="${id}" class='desno'>
+                <span>${data.username}</span>: ${data.message}
                 <br>
                 ${date}
+                <i class="fas fa-trash trash"></i>
             </li>`;
         this.listaPoruka.innerHTML += htmlLi;
+        }else{
+            let htmlLi =
+            `<li id="${id}" class='levo'>
+                <span>${data.username}</span>: ${data.message}
+                <br>
+                ${date}
+                <i class="fas fa-trash trash"></i>
+            </li>`;
+        this.listaPoruka.innerHTML += htmlLi;
+        }
+       
+    }
+
+    clear(){
+        this.listaPoruka.innerHTML = "";
     }
     
 }

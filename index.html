@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f8c4e0ed43.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -13,10 +14,10 @@
 
     <h3>Choose a chatroom</h3>
     <nav class="row">
-        <button class="col-3">#general</button>
-        <button class="col-3">#js</button>
-        <button class="col-3">#homeworks</button>
-        <button class="col-3">#tests</button>
+        <button class="col-3" id="general">#general</button>
+        <button class="col-3" id="js">#js</button>
+        <button class="col-3" id="homeworks">#homeworks</button>
+        <button class="col-3" id="tests">#tests</button>
     </nav>
 
     <section>
@@ -26,18 +27,30 @@
         </ul>
         
     </section>
-
+    
+    
 
     <div id="poruke">
+        <form action="" id="formDate">
+            <input type="datetime-local" name="pocetak" id="pocetak">
+            <input type="datetime-local" name="kraj" id="kraj">
+            <button type="submit" id="setDates">Set dates</button>
+        </form>
+        <form action="" id="formColor">
+            <input type="color" id="color" value="#ffffff">
+            <button type="submit" id="boja">Choose a color</button>
+        </form>
         <form action="" id="formMessage">
-            <input type="text" name="message" id="message" placeholder="Your message...">
+            <textarea name="message" id="message" placeholder="Your message..."></textarea>
             <button type="submit" id="send">Send</button>
         </form>
         <form action="" id="formUsername">
-            <input type="text" name="username" id="username" placeholder="Update username">
+            <input type="text" name="username" id="username" placeholder="Update username...">
             <button type="submit">Update</button>
         </form>
     </div>
+
+    <div id="ispis" hidden></div>
 
 
 

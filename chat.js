@@ -3,6 +3,7 @@ export class Chatroom {
         this.room = r;
         this.username = u;
         this.chats = db.collection('Chats');
+        this.unsub = false; // Odredili smo da false bude kao signal da je stranica 1. put ucitana
     }
 
     set room(r){
@@ -25,6 +26,24 @@ export class Chatroom {
         return this._username;
     }
 
+    // Update room
+    updateRoom(ur){
+        this.room = ur;
+        if(this.unsub != false){ // unsub vise nije false nego je u getChats postalo funkcija
+            this.unsub(); // unsub je sada funkcija i pozivam je sa zagradama
+        }
+    }
+
+    deleteMsg(id){
+        this.chats
+        .doc(id)
+        .delete()
+        .then()
+        .catch(e => {
+            console.log("Greska")
+        })
+    }
+
     async addChat(poruka){
         let date = new Date();
 
@@ -41,23 +60,16 @@ export class Chatroom {
 
     //Metod koji prati promene u bazi i vraca poruke
     getChats(callback) {
-        this.chats
+        this.unsub = this.chats
         .where('room', '==', this.room)
         .orderBy("created_at", 'asc')
         .onSnapshot(snapshot => {
             snapshot.docChanges().forEach(change => {
                 // Ispisati dokumente koji su dodati u bazu
                 if(change.type == 'added'){
-                    callback(change.doc.data());
+                    callback(change.doc);
                 }
             })
         })
     }
-
-    updateName(callback){
-        
-    }
-
 }
-
-
